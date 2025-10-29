@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurboFlix - Watch Movies & TV Shows Online</title>
+    <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+    <!-- Netflix Intro Splash -->
+    <div id="netflix-intro">
+        <div class="netflix-logo-intro">
+            <div class="netflix-shadow">
+                <div class="netflix-n">
+                    <div class="netflix-n-left"></div>
+                    <div class="netflix-n-middle"></div>
+                    <div class="netflix-n-right"></div>
+                </div>
+            </div>
+            <div class="netflix-n">
+                <div class="netflix-n-left"></div>
+                <div class="netflix-n-middle"></div>
+                <div class="netflix-n-right"></div>
+            </div>
+        </div>
+        <div class="tudum-sound">TA-DUM</div>
+    </div>
+
+    <!-- Main Header -->
+    <header id="header">
+        <div class="header-content">
+            <div class="header-left">
+                <a href="#" class="logo">TURBOFLIX</a>
+                <nav class="main-nav">
+                    <a href="#" class="nav-link active" data-category="all">Home</a>
+                    <a href="#" class="nav-link" data-category="tv">TV Shows</a>
+                    <a href="#" class="nav-link" data-category="movies">Movies</a>
+                    <a href="#" class="nav-link" data-category="new">New & Popular</a>
+                    <a href="#" class="nav-link" data-category="mylist">My List</a>
+                </nav>
+            </div>
+
+            <div class="header-right">
+                <div class="search-box" id="search-box">
+                    <button class="search-toggle" id="search-toggle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                    <input type="text" id="search-input" placeholder="Titles, people, genres" autocomplete="off">
+                </div>
+
+                <button class="icon-btn" id="notifications-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.58 21a2 2 0 01-3.16 0M12 3v1m0 0a7 7 0 017 7v4.29c0 .523.15 1.035.429 1.46l.922 1.404c.68 1.034.208 2.446-1.014 2.836A31 31 0 0112 22a31 31 0 01-7.337-.98c-1.222-.39-1.694-1.802-1.014-2.836l.922-1.405A2.5 2.5 0 005 14.29V11a7 7 0 017-7z"/>
+                    </svg>
+                    <span class="notification-badge">3</span>
+                </button>
+
+                <div class="user-menu" id="user-menu">
+                    <button class="user-avatar">
+                        <img src="https://i.pravatar.cc/150?img=68" alt="User">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                            <path d="M6 9L1.5 4.5 2.55 3.45 6 6.9 9.45 3.45 10.5 4.5 6 9Z"/>
+                        </svg>
+                    </button>
+                    <div class="user-dropdown">
+                        <a href="#" class="dropdown-item">
+                            <img src="https://i.pravatar.cc/150?img=68" alt="">
+                            <span>User 1</span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <img src="https://i.pravatar.cc/150?img=33" alt="">
+                            <span>User 2</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-link">Manage Profiles</a>
+                        <a href="#" class="dropdown-link">Account</a>
+                        <a href="#" class="dropdown-link">Help Center</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-link">Sign out of TurboFlix</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section id="hero-banner" class="hero-banner">
+        <div class="hero-background"></div>
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <div class="hero-badge">TURBOFLIX ORIGINAL</div>
+            <h1 class="hero-title"></h1>
+            <div class="hero-meta">
+                <span class="hero-match"></span>
+                <span class="hero-year"></span>
+                <span class="hero-rating"></span>
+                <span class="hero-seasons"></span>
+            </div>
+            <p class="hero-description"></p>
+            <div class="hero-actions">
+                <button class="btn-play" id="hero-play">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    Play
+                </button>
+                <button class="btn-more-info" id="hero-more-info">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" fill="none" stroke-width="2"/>
+                        <path d="M11 11h2v6h-2zm0-4h2v2h-2z"/>
+                    </svg>
+                    More Info
+                </button>
+            </div>
+        </div>
+        <div class="hero-mute-toggle">
+            <button id="mute-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" id="volume-on">
+                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" id="volume-off" style="display:none">
+                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- My List Section -->
+        <section class="content-section" id="my-list-section" style="display: none;">
+            <h2 class="section-title">My List</h2>
+            <div class="content-row" id="my-list-row"></div>
+        </section>
+
+        <!-- Continue Watching -->
+        <section class="content-section" id="continue-watching-section" style="display: none;">
+            <h2 class="section-title">Continue Watching</h2>
+            <div class="content-row" id="continue-watching-row"></div>
+        </section>
+
+        <!-- Top 10 -->
+        <section class="content-section" id="top10-section">
+            <h2 class="section-title">
+                <span class="top10-badge">TOP 10</span>
+                Top 10 in Your Country Today
+            </h2>
+            <div class="content-row top10-row" id="top10-row"></div>
+        </section>
+
+        <!-- Trending Now -->
+        <section class="content-section" id="trending-section">
+            <h2 class="section-title">Trending Now</h2>
+            <div class="content-row" id="trending-row"></div>
+        </section>
+
+        <!-- Dynamic Category Rows -->
+        <div id="category-rows"></div>
+
+        <!-- Load More -->
+        <div class="load-more-container" id="load-more-container" style="display: none;">
+            <button class="btn-load-more" id="btn-load-more">Load More</button>
+        </div>
+    </main>
+
+    <!-- Video Player Modal -->
+    <div id="player-modal" class="player-modal">
+        <div class="player-container">
+            <button class="player-close" id="player-close">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor">
+                    <path d="M28 9.4L26.6 8 18 16.6 9.4 8 8 9.4 16.6 18 8 26.6 9.4 28 18 19.4 26.6 28 28 26.6 19.4 18 28 9.4z"/>
+                </svg>
+            </button>
+            <div class="player-wrapper">
+                <iframe id="player-iframe" allowfullscreen></iframe>
+            </div>
+            <div class="player-details">
+                <div class="player-info">
+                    <h2 id="player-title"></h2>
+                    <div class="player-meta">
+                        <span class="player-match" id="player-match"></span>
+                        <span id="player-year"></span>
+                        <span class="player-rating" id="player-rating"></span>
+                    </div>
+                    <p id="player-description"></p>
+                </div>
+                <div class="player-sidebar">
+                    <div class="player-cast">
+                        <h3>Cast:</h3>
+                        <p id="player-cast"></p>
+                    </div>
+                    <div class="player-genres">
+                        <h3>Genres:</h3>
+                        <p id="player-genres"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- More Info Modal -->
+    <div id="info-modal" class="info-modal">
+        <div class="info-container">
+            <button class="info-close" id="info-close">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor">
+                    <path d="M28 9.4L26.6 8 18 16.6 9.4 8 8 9.4 16.6 18 8 26.6 9.4 28 18 19.4 26.6 28 28 26.6 19.4 18 28 9.4z"/>
+                </svg>
+            </button>
+            <div class="info-hero">
+                <div class="info-hero-bg" id="info-hero-bg"></div>
+                <div class="info-hero-gradient"></div>
+                <div class="info-hero-content">
+                    <h2 id="info-title"></h2>
+                    <div class="info-actions">
+                        <button class="btn-play" id="info-play">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            Play
+                        </button>
+                        <button class="icon-btn-round" id="info-add-list">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <button class="icon-btn-round" id="info-like">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="info-details">
+                <div class="info-main">
+                    <div class="info-meta">
+                        <span class="info-match" id="info-match"></span>
+                        <span id="info-year"></span>
+                        <span class="info-rating" id="info-rating"></span>
+                    </div>
+                    <p id="info-description"></p>
+                </div>
+                <div class="info-sidebar">
+                    <p><span class="info-label">Cast:</span> <span id="info-cast"></span></p>
+                    <p><span class="info-label">Genres:</span> <span id="info-genres"></span></p>
+                    <p><span class="info-label">This show is:</span> <span id="info-tags"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="YouTube">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <a href="#">Audio Description</a>
+                    <a href="#">Investor Relations</a>
+                    <a href="#">Legal Notices</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Help Center</a>
+                    <a href="#">Jobs</a>
+                    <a href="#">Cookie Preferences</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Gift Cards</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Corporate Information</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Media Center</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+            <button class="service-code-btn">Service Code</button>
+            <p class="copyright">© 1997-2025 TurboFlix, Inc.</p>
+        </div>
+    </footer>
+
+    <script crossorigin="anonymous" src="//unpkg.com/same-runtime/dist/index.global.js"></script>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
